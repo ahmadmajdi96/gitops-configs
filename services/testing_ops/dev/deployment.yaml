@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: testing_ops
-        image: ghcr.io/ahmadmajdi96/testing_ops:latest   # <-- update tag as needed
+        image: docker.io/ahmadmajdi96/testing_ops:f68d0904d344bd287dec68fbc305db9a8438e971
         ports:
         - containerPort: 8080
         readinessProbe:
