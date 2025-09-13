@@ -15,18 +15,18 @@ jobs:
           password: ${{ secrets.DOCKER_TOKEN }}
       - name: Build & push image
         run: |
-          IMAGE=REGISTRY/sample-app:${{ github.sha }}
-          docker build -t $IMAGE ./services/sample-app
+          IMAGE=REGISTRY/testing_ops:${{ github.sha }}
+          docker build -t $IMAGE ./services/testing_ops
           docker push $IMAGE
           echo "IMAGE=$IMAGE" >> $GITHUB_ENV
       - name: Update dev overlay
         if: github.ref == 'refs/heads/main'
         run: |
           git clone https://github.com/ahmadmajdi96/gitops-configs.git
-          cd gitops-configs/dev/sample-app
+          cd gitops-configs/dev/testing_ops
           sed -i "s|image: .*|image: $IMAGE|" deployment.yaml
           git config user.name "Ahmad Salameh"
           git config user.email "ahmad.majdi96@gmail.com"
           git add deployment.yaml
-          git commit -m "Update dev sample-app $IMAGE" || echo "no changes"
+          git commit -m "Update dev testing_ops $IMAGE" || echo "no changes"
           git push https://ahmadmajdi96:${{ secrets.GH_PAT }}@github.com/ahmadmajdi96/gitops-configs.git main
