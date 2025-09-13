@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: testing-ops
+  namespace: dev
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: testing-ops
+  template:
+    metadata:
+      labels:
+        app: testing-ops
+    spec:
+      containers:
+      - name: testing-ops
+        image: docker.io/ahmadmajdi96/testing-ops:f68d0904d344bd287dec68fbc305db9a8438e971
+        ports:
+        - containerPort: 8080
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8080
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 8080

@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: testing_ops
+  name: testing-ops
   namespace: prod
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: testing_ops
+      app: testing-ops
   template:
     metadata:
       labels:
-        app: testing_ops
+        app: testing-ops
     spec:
       containers:
-      - name: testing_ops
-        image: ghcr.io/ahmadmajdi96/testing_ops:latest   # update with a stable tag
+      - name: testing-ops
+        image: ghcr.io/ahmadmajdi96/testing-ops:latest   # update with a stable tag
         ports:
         - containerPort: 8080
         readinessProbe:

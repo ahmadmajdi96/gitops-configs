@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: testing_ops-prod
+  name: testing-ops-prod
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: https://github.com/ahmadmajdi96/gitops-configs.git
     targetRevision: main
-    path: prod/testing_ops
+    path: prod/testing-ops
   destination:
     server: https://kubernetes.default.svc
     namespace: prod
