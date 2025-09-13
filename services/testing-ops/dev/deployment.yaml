@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: testing-ops
-        image: docker.io/ahmadmajdi96/testing-ops:c16be5e3265f8bff533f465b0d527b2a286d97cb
+        image: docker.io/ahmadmajdi96/testing-ops:253a66a86ce37ef39b9e0f1dab4a8032a661f01c
         ports:
         - containerPort: 8080
         readinessProbe:
