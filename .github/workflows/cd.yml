@@ -27,7 +27,8 @@ jobs:
           sed -i "s|image: .*|image: $IMAGE|" deployment.yaml
           git config user.name "Ahmad Salameh"
           git config user.email "ahmad.majdi96@gmail.com"
+          cd services/testing_ops/$ENV
+          sed -i "s|image: .*|image: $IMAGE|" deployment.yaml
           git add deployment.yaml
-          git commit -m "Update dev testing_ops $IMAGE" || echo "no changes"
-          git push https://ahmadmajdi96:${{ secrets.GH_PAT }}@github.com/ahmadmajdi96/gitops-configs.git main
-##
+          git commit -m "Update $ENV testing_ops $IMAGE" || echo "no changes"
+          git push origin $GITHUB_REF_NAME
