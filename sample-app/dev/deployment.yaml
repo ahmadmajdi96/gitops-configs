@@ -15,6 +15,14 @@ spec:
     spec:
       containers:
       - name: sample-app
-        image: REGISTRY/sample-app:latest
+        image: ghcr.io/ahmadmajdi96/sample-app:latest   # <-- update tag as needed
         ports:
-        - containerPort: 3000
+        - containerPort: 8080
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8080
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 8080
