@@ -22,8 +22,7 @@ jobs:
       - name: Update dev overlay
         if: github.ref == 'refs/heads/main'
         run: |
-          git clone https://github.com/ahmadmajdi96/gitops-configs.git
-          git config --global user.name "Ahmad Salameh"
+          git clone https://x-access-token:${{ secrets.GH_PAT }}@github.com/ahmadmajdi96/gitops-configs.git          git config --global user.name "Ahmad Salameh"
           git config --global user.email "ahmad.majdi96@gmail.com"
           cd gitops-configs/services/testing_ops/dev
           sed -i "s|image: .*|image: $IMAGE|" deployment.yaml
