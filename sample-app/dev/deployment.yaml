@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: sample-app
-        image: ghcr.io/ahmadmajdi96/sample-app:latest   # <-- update tag as needed
+        image: ghcr.io/ahmadmajdi96/testing_ops:latest   # <-- update tag as needed
         ports:
         - containerPort: 8080
         readinessProbe:
