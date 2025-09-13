@@ -15,7 +15,7 @@ jobs:
           password: ${{ secrets.DOCKER_TOKEN }}
       - name: Build & push image
         run: |
-          IMAGE=REGISTRY/testing_ops:${{ github.sha }}
+          IMAGE=docker.io/ahmadmajdi96/testing_ops:${{ github.sha }}
           docker build -t $IMAGE ./services/testing_ops
           docker push $IMAGE
           echo "IMAGE=$IMAGE" >> $GITHUB_ENV
