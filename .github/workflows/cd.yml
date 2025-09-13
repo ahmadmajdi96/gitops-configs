@@ -25,7 +25,7 @@ jobs:
           git clone https://github.com/ahmadmajdi96/gitops-configs.git
           git config user.name "Ahmad Salameh"
           git config user.email "ahmad.majdi96@gmail.com"
-          cd services/testing_ops/dev
+          cd gitops-configs/services/testing_ops/dev
           sed -i "s|image: .*|image: $IMAGE|" deployment.yaml
           git add deployment.yaml
           git commit -m "Update $ENV testing_ops $IMAGE" || echo "no changes"
