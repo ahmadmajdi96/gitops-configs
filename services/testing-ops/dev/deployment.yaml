@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: testing-ops
+  name: testing-ops-dev
   namespace: dev
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: testing-ops
+      app: testing-ops-dev
   template:
     metadata:
       labels:
-        app: testing-ops
+        app: testing-ops-dev
     spec:
       containers:
-      - name: testing-ops
+      - name: testing-ops-dev
         image: docker.io/ahmadmajdi96/testing-ops:f68d0904d344bd287dec68fbc305db9a8438e971
         ports:
         - containerPort: 8080
