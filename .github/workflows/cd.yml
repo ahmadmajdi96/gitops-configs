@@ -23,8 +23,8 @@ jobs:
         if: github.ref == 'refs/heads/main'
         run: |
           git clone https://github.com/ahmadmajdi96/gitops-configs.git
-          git config user.name "Ahmad Salameh"
-          git config user.email "ahmad.majdi96@gmail.com"
+          git config --global user.name "Ahmad Salameh"
+          git config --global user.email "ahmad.majdi96@gmail.com"
           cd gitops-configs/services/testing_ops/dev
           sed -i "s|image: .*|image: $IMAGE|" deployment.yaml
           git add deployment.yaml
